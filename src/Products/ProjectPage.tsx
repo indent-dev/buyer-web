@@ -14,7 +14,9 @@ const ProjectPage = () => {
                 </Row>
             </Layout.Header>
                 <Layout.Content style={{height: "90vh"}}>
-                    <Typography.Title level={4} style={{textAlign: "center"}} >Project Page</Typography.Title>
+                    <Typography.Title level={4} style={{textAlign: "center"}} >Project Page
+                    <br /> Team: Yukafi & Ilham
+                    </Typography.Title>
                 </Layout.Content>
             <Layout.Footer style={{ textAlign: 'center' }}>Footer</Layout.Footer>
         </Layout>
