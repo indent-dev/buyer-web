@@ -1,4 +1,4 @@
-import { Card, Col, Typography } from "antd";
+import { Card, Col } from "antd";
 import React from "react";
 
 export const CardCategory = (props: any) => {

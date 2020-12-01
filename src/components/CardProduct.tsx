@@ -1,6 +1,4 @@
-import { Skeleton, Card, Avatar, Col, Button, Row, Typography } from 'antd';
-import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
-import { useState } from 'react';
+import { Skeleton, Card, Col, Button, Row, Typography } from 'antd';
 import React from 'react';
 import { IProduct } from './ProductList';
 
