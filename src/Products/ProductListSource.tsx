@@ -1,8 +1,9 @@
-import { IProduct } from "../components/ProductList";
+import Axios from "axios";
+import { IProduct, IProductAPI } from "../components/ProductList";
 
-export const productListDemo: IProduct[] = [
+export const productListDummy: IProduct[] = [
     {
-        id: 0,
+        id: '0',
         image: "https://via.placeholder.com/100/1890FF",
         price: "Rp.150.000",
         category: "Gadget",
@@ -11,7 +12,7 @@ export const productListDemo: IProduct[] = [
         loading: true
     },
     {
-        id: 1,
+        id: '1',
         image: "https://via.placeholder.com/100/1890FF",
         price: "Rp.85.000",
         category: "Fashion",
@@ -20,7 +21,7 @@ export const productListDemo: IProduct[] = [
         loading: true
     },
     {
-        id: 2,
+        id: '2',
         image: "https://via.placeholder.com/100/1890FF",
         price: "Rp.225.000",
         category: "Olahraga",
@@ -29,7 +30,7 @@ export const productListDemo: IProduct[] = [
         loading: true
     },
     {
-        id: 3,
+        id: '3',
         image: "https://via.placeholder.com/100/1890FF",
         price: "Rp.125.000",
         category: "Elektronik",
@@ -38,7 +39,7 @@ export const productListDemo: IProduct[] = [
         loading: true
     },
     {
-        id: 4,
+        id: '4',
         image: "https://via.placeholder.com/100/1890FF",
         price: "Rp.125.000",
         category: "Otomotif",
@@ -48,7 +49,7 @@ export const productListDemo: IProduct[] = [
     },
     // Displayed dummy data
     {
-        id: 5,
+        id: '5',
         image: "https://via.placeholder.com/100/1890FF",
         price: "Rp.150.000",
         category: "Gadget",
@@ -57,7 +58,7 @@ export const productListDemo: IProduct[] = [
         loading: false
     },
     {
-        id: 6,
+        id: '6',
         image: "https://via.placeholder.com/100/1890FF",
         price: "Rp.85.000",
         category: "Fashion",
@@ -66,7 +67,7 @@ export const productListDemo: IProduct[] = [
         loading: false
     },
     {
-        id: 7,
+        id: '7',
         image: "https://via.placeholder.com/100/1890FF",
         price: "Rp.225.000",
         category: "Olahraga",
@@ -75,7 +76,7 @@ export const productListDemo: IProduct[] = [
         loading: false
     },
     {
-        id: 8,
+        id: '8',
         image: "https://via.placeholder.com/100/1890FF",
         price: "Rp.125.000",
         category: "Elektronik",
@@ -84,7 +85,7 @@ export const productListDemo: IProduct[] = [
         loading: false
     },
     {
-        id: 9,
+        id: '9',
         image: "https://via.placeholder.com/100/1890FF",
         price: "Rp.125.000",
         category: "Otomotif",

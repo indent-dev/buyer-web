@@ -1,22 +1,22 @@
 import React, { createContext, useState } from 'react';
-import { IProduct } from './ProductList';
+import { IProductAPI } from './ProductList';
 
 interface IProps {
     children: React.ReactNode,
 }
 
 export interface ContextValue {
-    filteredProductList: IProduct[]
-    getFilteredProductList: (newProduct: IProduct[]) => void
+    filteredProductList: IProductAPI[]
+    getFilteredProductList: (newProduct: IProductAPI[]) => void
 }
 
 export const ProductContext = createContext<ContextValue>({ filteredProductList: [], getFilteredProductList: () => { } });
 
 export const ProductProvider = (props: IProps) => {
 
-    const [filteredProductList, setFilteredProductList] = useState<IProduct[]>([])
+    const [filteredProductList, setFilteredProductList] = useState<IProductAPI[]>([])
 
-    const getFilteredProductList = (products: IProduct[]) => setFilteredProductList(products);
+    const getFilteredProductList = (products: IProductAPI[]) => setFilteredProductList(products);
 
     const contextValue: ContextValue = { filteredProductList, getFilteredProductList }
 

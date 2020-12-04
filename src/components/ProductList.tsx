@@ -1,15 +1,15 @@
 import { Row } from "antd";
-import React, { useContext } from "react";
-import { productListDemo } from "../Products/ProductListDummy";
+import Axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
 import { CardProduct } from "./CardProduct";
 import { ContextValue, ProductContext } from "./ProductContext";
 
 interface IProductList {
-    products: IProduct[]
+    products: IProductAPI[]
 }
 
 export interface IProduct {
-    id: number | undefined
+    id: string | undefined
     image: string | undefined
     price: string | undefined
     category: string | undefined
@@ -19,36 +19,62 @@ export interface IProduct {
     loading: boolean | undefined
 }
 
+export interface IProductAPI {
+    _id: string
+    product_name: string
+    price: string,
+    category: {
+        _id: string
+        name: string
+    },
+    image: string | undefined
+    location: string | undefined
+    loading: boolean | undefined
+
+}
+
+
+
 export const ProductList = () => {
 
     const { filteredProductList } = useContext<ContextValue>(ProductContext)
+    const [data, setData] = useState<IProductAPI[]>();
 
-    console.log(filteredProductList.length)
+    const productListFromAPI = async () => {
+        let data = await Axios.get("https://product-service-indent.herokuapp.com/product")
+            .then(res => res.data)
+            .then(data => setData(data))
+    }
+
+    useEffect(() => {
+        productListFromAPI()
+    }, [])
+
     return (
         <Row>
             { filteredProductList.length > 0 ?
-                filteredProductList.map((item: IProduct) => {
+                filteredProductList?.map((item: IProductAPI) => {
                     return (
                         <CardProduct image={item.image}
-                            key={item.id}
-                            id={item.id}
+                            key={item._id}
+                            _id={item._id}
                             price={item.price}
                             category={item.category}
-                            description={item.description}
-                            location={item.location}
+                            location={"Lumajang,Jawa Timur"}
+                            product_name={item.product_name}
                             loading={item.loading} />
                     )
                 }) :
-                productListDemo.map((item: IProduct) => {
+                data?.map((item: IProductAPI) => {
                     console.log(item)
                     return (
                         <CardProduct image={item.image}
-                            key={item.id}
-                            id={item.id}
+                            key={item._id}
+                            _id={item._id}
                             price={item.price}
                             category={item.category}
-                            description={item.description}
-                            location={item.location}
+                            product_name={item.product_name}
+                            location={"Lumajang,Jawa Timur"}
                             loading={item.loading} />
 
                     )
