@@ -1,5 +1,5 @@
 import React from 'react'
-import { Layout, Typography, Row, Col, Input, Space } from "antd";
+import { Layout, Typography, Row, Col, Input } from "antd";
 import { ProductList } from '../components/ProductList';
 import { CategoryList } from '../components/CategoryList';
 
