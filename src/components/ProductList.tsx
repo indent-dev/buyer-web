@@ -1,6 +1,7 @@
 import { Row } from "antd";
 import Axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom"
 import { CardProduct } from "./CardProduct";
 import { ContextValue, ProductContext } from "./ProductContext";
 
@@ -32,8 +33,6 @@ export interface IProductAPI {
     loading: boolean | undefined
 
 }
-
-
 
 export const ProductList = () => {
 
@@ -68,15 +67,16 @@ export const ProductList = () => {
                 data?.map((item: IProductAPI) => {
                     console.log(item)
                     return (
-                        <CardProduct image={item.image}
-                            key={item._id}
-                            _id={item._id}
-                            price={item.price}
-                            category={item.category}
-                            product_name={item.product_name}
-                            location={"Lumajang,Jawa Timur"}
-                            loading={item.loading} />
-
+                        <Link to="/detail">
+                            <CardProduct image={item.image}
+                                key={item._id}
+                                _id={item._id}
+                                price={item.price}
+                                category={item.category}
+                                product_name={item.product_name}
+                                location={"Lumajang,Jawa Timur"}
+                                loading={item.loading} />
+                        </Link>
                     )
                 })
             }
