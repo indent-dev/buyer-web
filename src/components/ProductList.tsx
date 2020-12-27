@@ -65,9 +65,8 @@ export const ProductList = () => {
                     )
                 }) :
                 data?.map((item: IProductAPI) => {
-                    console.log(item)
                     return (
-                        <Link to="/detail">
+                        <Link to={`/detail/${item._id}`} key={item._id}>
                             <CardProduct image={item.image}
                                 key={item._id}
                                 _id={item._id}

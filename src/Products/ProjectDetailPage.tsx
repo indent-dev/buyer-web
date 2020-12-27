@@ -1,9 +1,30 @@
 import React from 'react'
 import { Layout, Typography, Row, Col, Button, Image, Breadcrumb } from "antd";
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
+import Axios from "axios"
+import { IProductAPI } from "../components/ProductList"
 import "../App.css"
 
+interface IDetailProductType {
+    id: string
+}
+
 const ProjectDetailPage = () => {
+    const [data, setData] = React.useState<IProductAPI>();
+    const { id } = useParams<IDetailProductType>();
+
+    React.useEffect(() => {
+        const fetchDetailProduct = async () => {
+            try {
+                const result = await Axios.put(`https://product-service-indent.herokuapp.com/product/${id}`)
+                setData(result.data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchDetailProduct();
+    }, [id])
+
     return (
         <Layout style={{ backgroundColor: "#fff" }}>
             <Layout.Header style={{ backgroundColor: "#f6f7f7" }}>
@@ -16,20 +37,20 @@ const ProjectDetailPage = () => {
             <Layout.Content style={{ marginLeft: "3.5em", marginBottom: "4em" }}>
                 <Breadcrumb style={{ margin: '20px 0' }}>
                     <Breadcrumb.Item>PRODUK</Breadcrumb.Item>
-                    <Breadcrumb.Item className="ant-breadcrumb">Charger samsung</Breadcrumb.Item>
+                    <Breadcrumb.Item className="ant-breadcrumb">{data?.product_name}</Breadcrumb.Item>
                 </Breadcrumb>
                 <Button type="primary"><Link to="/">KEMBALI KE PRODUK</Link></Button>
                 <Row align="middle">
                     <Col style={{ marginTop: 30, marginRight: 40 }} >
                         <Image
                             style={{ width: 700, height: 500 }}
-                            src="https://dl.airtable.com/.attachments/fd71dfd92540388a86553657e3d7d740/faadea06/extra-1.jpeg"
+                            src={data?.image}
                             preview
                         />
                     </Col>
                     <Col style={{ marginTop: 30, width: '35%' }}>
-                        <Typography.Title level={2} >Charger Samsung S8 S8+ Note 8 S9</Typography.Title>
-                        <Typography.Title level={4} type="secondary">Rp. 125.000</Typography.Title>
+                        <Typography.Title level={2} >{data?.product_name}</Typography.Title>
+                        <Typography.Title level={4} type="secondary">Rp. {data?.price}</Typography.Title>
                         <br />
                         <div style={{ width: 500, height: 250 }}>
                             <Typography.Text style={{ lineHeight: 3 }}>

@@ -6,7 +6,7 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/" component={ProjectPage} />
-        <Route path="/detail" component={ProjectDetailPage} />
+        <Route path="/detail/:id" component={ProjectDetailPage} />
         <Redirect to="/" />
       </Switch>
     </Router>
