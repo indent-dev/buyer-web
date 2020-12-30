@@ -6,11 +6,11 @@ import { ProductProvider } from '../components/ProductContext';
 
 const ProjectPage = () => {
     return (
-        <Layout style={{ backgroundColor: "#fff" }}>
+        <Layout style={{ backgroundColor: "#fff", overflow: "hidden" }}>
             <ProductProvider>
                 <Layout.Header style={{ backgroundColor: "#f6f7f7" }}>
-                    <Row justify="space-between" style={{ marginTop: 15 }}>
-                        <Col>
+                    <Row justify="space-between">
+                        <Col style={{ marginTop: 15 }}>
                             <Typography.Title level={4}>Buyer Website</Typography.Title>
                         </Col>
                         <Col md={8}>

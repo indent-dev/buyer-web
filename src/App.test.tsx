@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { cleanup, render } from '@testing-library/react';
 import ProjectPage from "./Products/ProjectPage";
 
 Object.defineProperty(window, "matchMedia", {
@@ -16,8 +16,15 @@ Object.defineProperty(window, "matchMedia", {
   })),
 });
 
-test('renders project page', () => {
+test('Renders project page', () => {
   const { getByText } = render(<ProjectPage />);
   const linkElement = getByText("Buyer Website");
   expect(linkElement).toBeInTheDocument();
 });
+
+test('Shows loading when retrieving the data', () => {
+  const { getByText } = render(<ProjectPage />);
+  const linkElement = getByText(/Loading/i);
+  expect(linkElement).toBeInTheDocument();
+  cleanup();
+})

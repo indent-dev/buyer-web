@@ -37,7 +37,7 @@ const ProjectDetailPage = () => {
             <Layout.Content style={{ marginLeft: "3.5em", marginBottom: "4em" }}>
                 <Breadcrumb style={{ margin: '20px 0' }}>
                     <Breadcrumb.Item>PRODUK</Breadcrumb.Item>
-                    <Breadcrumb.Item className="ant-breadcrumb">{data?.product_name}</Breadcrumb.Item>
+                    <Breadcrumb.Item >{data?.product_name}</Breadcrumb.Item>
                 </Breadcrumb>
                 <Button type="primary"><Link to="/">KEMBALI KE PRODUK</Link></Button>
                 <Row align="middle">
