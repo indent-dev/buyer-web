@@ -9,8 +9,8 @@ const ProjectPage = () => {
         <Layout style={{ backgroundColor: "#fff", overflow: "hidden" }}>
             <ProductProvider>
                 <Layout.Header style={{ backgroundColor: "#f6f7f7" }}>
-                    <Row justify="space-between">
-                        <Col style={{ marginTop: 15 }}>
+                    <Row justify="space-between" style={{ marginTop: 15 }}>
+                        <Col>
                             <Typography.Title level={4}>Buyer Website</Typography.Title>
                         </Col>
                         <Col md={8}>
